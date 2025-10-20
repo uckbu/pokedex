@@ -34,6 +34,8 @@ The script opens a webcam stream with OpenCV, continuously displaying frames whi
 
 
 The encoded image is packaged into an Ollama chat request targeting qwen2.5vl:3b, using a concise prompt asking for a single-word animal identification (so that the output can be routed into the answer from the pokedex). Failures are caught and reported without crashing the loop, while pressing q exits cleanly.
+
+THIS WORKS! But it will be changed later after we get our hardware because I dislike relying on LLMs for solutions.
 ![image.png](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzYwNywicHVyIjoiYmxvYl9pZCJ9fQ==--8471a7cb080fafc09e132cfca9e8b8f00c8e0024/image.png)
   
 
