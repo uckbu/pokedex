@@ -10,7 +10,7 @@ This is my journal of the design and building process of **pokedex**.
 You can view this journal in more detail on **Hack Club Blueprint** [here](https://blueprint.hackclub.com/projects/626).
 
 
-## 10/19/2025 - Created initial wildlife detector script  
+## 10/19/2025 12 AM - Created initial wildlife detector script  
 
 Researched available and easy wildlife detection tools that are widely available, easy to run, and functional on lower-end edge devices (ideally something around the power of a Raspberry Pi 5).
 
@@ -25,4 +25,15 @@ But... unfortunately realized way too late that this only specified ANIMAL, and 
 Onto the next idea, I guess. Maybe a 3B VL LLM? I dislike wrappers.. but it could work on a pi with a high system memory, especially since we need some sort of universal animal detection that is very difficult to come by with models.
 
 Ideally I will get a working prototype then train a series of my own YOLO models to move away from the LLM in the future.  
+
+## 10/19/2025 9 PM - Wrote code to reroute image to LLMs  
+
+I wrote a script that uses an LLM (qwen2.5VL:3b for its small size and the fact that it can likely run on a raspberry pi 5) to analyze an image and determine what animal it is.
+
+The script opens a webcam stream with OpenCV, continuously displaying frames while listening for keyboard input. When the c key is detected, the current frame is resized if larger than 1024 pixels on any side, compressed to JPEG with quality 90, and base64-encoded for transmission.
+
+
+The encoded image is packaged into an Ollama chat request targeting qwen2.5vl:3b, using a concise prompt asking for a single-word animal identification (so that the output can be routed into the answer from the pokedex). Failures are caught and reported without crashing the loop, while pressing q exits cleanly.
+![image.png](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzYwNywicHVyIjoiYmxvYl9pZCJ9fQ==--8471a7cb080fafc09e132cfca9e8b8f00c8e0024/image.png)
+  
 
