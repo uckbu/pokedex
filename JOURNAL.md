@@ -28,7 +28,7 @@ Ideally I will get a working prototype then train a series of my own YOLO models
 
 ## 10/19/2025 9 PM - Wrote code to reroute image to LLMs  
 
-I wrote a script that uses an LLM (qwen2.5VL:3b for its small size and the fact that it can likely run on a raspberry pi 5) to analyze an image and determine what animal it is.
+I wrote a script that uses an LLM (qwen2.5VL:3b for its small size and the fact that it can likely run on a raspberry pi 5) to analyze an image and determine what animal it is. My goat emi aided me in this endeavor.
 
 The script opens a webcam stream with OpenCV, continuously displaying frames while listening for keyboard input. When the c key is detected, the current frame is resized if larger than 1024 pixels on any side, compressed to JPEG with quality 90, and base64-encoded for transmission.
 
